@@ -101,8 +101,8 @@ namespace Proyecto.Controllers
             };
 
             Equipo equipo2 = new Equipo { };
-                equipo2.EquipoId = 2;
-                equipo2.Nombre = "Nigeria";
+            equipo2.EquipoId = 2;
+            equipo2.Nombre = "Nigeria";
 
             Partido partido = new Partido
             {
@@ -111,8 +111,14 @@ namespace Proyecto.Controllers
                 GolesLocal = 2,
                 GolesVisitante = 1
             };
+            ViewData["EquipoLocal"] = partido.EquipoLocal;
+            ViewData["idEquipo"] = partido.EquipoLocal.EquipoId;
+            ViewData["EquipoLocalDescripcion"] = partido.EquipoLocal.Nombre;
+            ViewBag.MostrarResultado = true;
+         
+            var x = partido.InformarResultado;
             
-            return View();
+            return View(partido);
         }
 
     }

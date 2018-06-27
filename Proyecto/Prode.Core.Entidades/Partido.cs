@@ -11,15 +11,16 @@ namespace Prode.Core.Entidades
         public int GolesLocal { get; set; }
         public int GolesVisitante { get; set; }
         public DateTime   Fecha{ get; set; }
-        public String InformarResultado {
+        public String InformarResultado
+        {
             get
             {
                 var resultado = "";
-                if (GolesLocal>GolesVisitante)
+                if (GolesLocal > GolesVisitante)
                 {
                     resultado = $"Gano {EquipoLocal.Nombre}";
                 }
-                else if (GolesLocal<GolesVisitante)
+                else if (GolesLocal < GolesVisitante)
                 {
                     resultado = $"Gano {EquipoLocal.Nombre}";
                 }
@@ -29,10 +30,12 @@ namespace Prode.Core.Entidades
                 }
                 return resultado;
             }
-           
 
-            set; }
 
+            set
+            {
+            }
+        }
 
     }
 }

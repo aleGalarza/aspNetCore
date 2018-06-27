@@ -1,0 +1,44 @@
+﻿@using Prode.Core.Entidades
+
+@model Partido
+
+@{
+    ViewData["Title"] = "Resultado Partido";
+}
+<!--
+<div>
+    <h1>Partido</h1>
+
+    <h1>@Model.EquipoLocal.Nombre  @Model.GolesLocal -  @Model.EquipoVisitante.Nombre  @Model.GolesVisitante</h1>
+
+
+<h1>@Model.InformarResultado</h1>
+</div>
+      -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Equipo</th>
+            <th scope="col">@Model.EquipoLocal.Nombre</th>
+            <th scope="col">@Model.EquipoVisitante.Nombre</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Resultado</th>
+            <td>@Model.GolesLocal</td>
+            <td>@Model.GolesVisitante</td>
+
+        </tr>
+
+
+    </tbody>
+</table>
+
+<h1 class="text-center">@Model.InformarResultado</h1>
+
+
+
+
