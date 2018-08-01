@@ -5,120 +5,56 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Prode.Core.Entidades;
+using Prode.Core.Entidades.Interface;
 
 namespace Proyecto.Controllers
 {
     public class PartidoController : Controller
     {
-        // GET: Partido
-        public ActionResult Index()
+        private IFormateador _formateador;
+
+        public PartidoController(IFormateador formateador)
         {
-            return View();
-        }
-
-        // GET: Partido/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Partido/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Partido/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Partido/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Partido/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Partido/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Partido/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _formateador = formateador;
         }
 
         public ActionResult ResultadoPartido()
         {
-            Equipo equipo1 = new Equipo
+            var argentina = new Equipo
             {
-                EquipoId = 1,
-                Nombre = "Argentina"
-
+                Nombre = "Argentina",
+                Abreviatura = "ARG"
             };
 
-            Equipo equipo2 = new Equipo { };
-            equipo2.EquipoId = 2;
-            equipo2.Nombre = "Nigeria";
 
-            Partido partido = new Partido
-            {
-                EquipoLocal = equipo1,
-                EquipoVisitante = equipo2,
-                GolesLocal = 2,
-                GolesVisitante = 1
-            };
-            ViewData["EquipoLocal"] = partido.EquipoLocal;
-            ViewData["idEquipo"] = partido.EquipoLocal.EquipoId;
-            ViewData["EquipoLocalDescripcion"] = partido.EquipoLocal.Nombre;
-            ViewBag.MostrarResultado = true;
-         
-            var x = partido.InformarResultado;
-            
-            return View(partido);
+            ViewData["Nombre"] = _formateador.NombreCompleto(argentina);
+            return View();
+            //Equipo equipo1 = new Equipo
+            //{
+            //    EquipoId = 1,
+            //    Nombre = "Argentina"
+
+            //};
+
+            //Equipo equipo2 = new Equipo { };
+            //equipo2.EquipoId = 2;
+            //equipo2.Nombre = "Nigeria";
+
+            //Partido partido = new Partido
+            //{
+            //    EquipoLocal = equipo1,
+            //    EquipoVisitante = equipo2,
+            //    GolesLocal = 2,
+            //    GolesVisitante = 1
+            //};
+            //ViewData["EquipoLocal"] = partido.EquipoLocal;
+            //ViewData["idEquipo"] = partido.EquipoLocal.EquipoId;
+            //ViewData["EquipoLocalDescripcion"] = partido.EquipoLocal.Nombre;
+            //ViewBag.MostrarResultado = true;
+
+            //var x = partido.InformarResultado;
+
+            //return View();
         }
 
     }

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Prode.Core.Entidades.Interface;
+using System;
+
 
 namespace Prode.Core.Entidades
 {
-    public class Equipo
+    public class Equipo : IEquipo
     {
-        public int EquipoId { get; set; }
-        public string Nombre { get; set; }
+        public string Nombre { get ; set ; }
+        public string Abreviatura { get ; set ; }
     }
 }

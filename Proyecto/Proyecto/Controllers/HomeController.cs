@@ -8,8 +8,11 @@ using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
+     //[Route("[controller]/[action]")]
     public class HomeController : Controller
     {
+        //REGLA DE ENRUTAMIENTO POR ATRIBUTO
+        //[Route("index")]
         public IActionResult Index()
         {
             return View();
@@ -21,6 +24,9 @@ namespace Proyecto.Controllers
 
             return View();
         }
+
+        //[Route("Contact/{nombre}")]
+        //[Route("Contact/")]
 
         public IActionResult Contact()
         {
