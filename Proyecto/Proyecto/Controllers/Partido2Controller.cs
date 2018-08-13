@@ -31,20 +31,20 @@ namespace Proyecto.Controllers
                 _logger.LogError(ex.ToString());
             }
 
-            try { 
-            var resultado = equipo1.Length / (equipo2.Length -1);
-            ViewBag.Resultado = resultado;
-        }
-         catch (DivideByZeroException ex)
-            {
+        //    try { 
+        //    var resultado = equipo1.Length / (equipo2.Length -1);
+        //    ViewBag.Resultado = resultado;
+        //}
+        // catch (DivideByZeroException ex)
+        //    {
 
-                //LOGGER
-            }
+        //        //LOGGER
+        //    }
         
-        catch(Exception ex)
-            {
-                //LOGGER
-            }
+        //catch(Exception ex)
+        //    {
+        //        //LOGGER
+        //    }
          
 
             

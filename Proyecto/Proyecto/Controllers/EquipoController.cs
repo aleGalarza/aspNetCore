@@ -23,8 +23,16 @@ namespace Proyecto.Controllers
             var argentina = new Equipo
             {
                 Nombre = "Argentina",
-                Abreviatura = "ARG"
+                Abreviatura = "ARG",
+                
             };
+        //    var jugadores1 = new List<Jugador>
+        //{
+        //    new Jugador() { Name="Tadpole", MegaLightYears=400},
+        //    new Jugador() { Name="Pinwheel", MegaLightYears=25},
+        //    new Jugador() { Name="Milky Way", MegaLightYears=0},
+        //    new Jugador() { Name="Andromeda", MegaLightYears=3}
+        //};
 
             var francia = new Equipo
             {

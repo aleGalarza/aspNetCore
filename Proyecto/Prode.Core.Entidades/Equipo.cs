@@ -1,6 +1,6 @@
 ﻿using Prode.Core.Entidades.Interface;
 using System;
-
+using System.Collections.Generic;
 
 namespace Prode.Core.Entidades
 {
@@ -8,5 +8,8 @@ namespace Prode.Core.Entidades
     {
         public string Nombre { get ; set ; }
         public string Abreviatura { get ; set ; }
+
+        //public List<Jugador>
+   
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Proyecto
+namespace prode
 {
     public class Startup
     {
@@ -24,13 +24,6 @@ namespace Proyecto
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<Prode.Core.Entidades.Interface.IFormateador,
-                                 Prode.Core.Entidades.Formateador>();
-
-       
-
-
-
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -59,27 +52,12 @@ namespace Proyecto
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-       
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-
-                routes.MapRoute(
-                    name: "Acerca",
-                    template: "Acerca",
-                    defaults: new { controller = "Home", action = "About" });
-
-                routes.MapRoute(
-                   name: "Pagina-index",
-                   template: "Pagina-index",
-                   defaults: new { controller = "Home", action = "index" });
-
             });
-
-     
         }
     }
 }

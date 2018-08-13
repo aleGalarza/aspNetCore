@@ -5,7 +5,7 @@
 @{
     ViewData["Title"] = "Resultado Partido";
 }
-<!--
+
 <div>
     <h1>Partido</h1>
 
@@ -14,7 +14,7 @@
 
 <h1>@Model.InformarResultado</h1>
 </div>
-      -->
+      
 
 <table class="table">
     <thead>
@@ -38,6 +38,110 @@
 </table>
 
 <h1 class="text-center">@Model.InformarResultado</h1>
+@*<div class="table-responsive">
+    <table id="mytable" class="table table-bordred table-striped">
+        <?php if ($cart = $this->cart->contents()): ?>
+        <thead>
+        <td>Nº item</td>
+        <td>Marca</td>
+        <td>Precio</td>
+        <td>Cantidad</td>
+        <td>Subtotal</td>
+        <td>Acción</td>
+        </thead>
+        <tbody>
+            <?php
+            $i = 1;
+            foreach ($cart as $item):?>
+            <tr>
+                <td>
+                    <?php echo $i++; ?>
+                </td>
+                <td>
+                    <?php echo $item['name']; ?>
+                </td>
+                <td>
+                    $ <?php echo $this->cart->format_number($item['price'],2); ?>
+                </td>
+                <td>
+                    <?php echo $item['qty']; ?>
+                </td>
+
+                <td>
+                    $ <?php echo $this->cart->format_number($item['subtotal'],2); ?>
+                </td>
+                <td>
+                    <?php echo anchor('carrito_controller/borrar/'.$item['rowid'],'Eliminar'); ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+            <tr>
+                <td>Total Compra:$<?php echo number_format($this->cart->total(),2); ?></td>
+                <td>
+                    <button type="button" class="btn form text-dark" onclick="limpiar_carrito()">
+                        Vaciar
+                        carrito
+                    </button>
+                </td>
+
+                <td>
+                    <a href="<?php echo base_url('realizarpedido'); ?>" class="btn form text-dark"
+                       role="button">Ordenar compra</a>
+                </td>
+            </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header mb-4" style="text-align:center;">Listado de Perfumes</h1>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-lg-12">
+            <div class="table-responsive">
+                <table id="mytable" class="table table-bordred table-striped table-hover">
+                    <thead>
+                    <th>Categoria</th>
+                    <th>Marca</th>
+                    <th>Descripcion</th>
+                    <th>Stock</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    </thead>
+                    <tbody>
+
+                        <?php foreach($producto as $row){ ?>
+                        <tr>
+                            <td> <?php echo $row->categoria_desc; ?> </td>
+                            <td> <?php echo $row->marca_desc; ?> </td>
+                            <td> <?php echo $row->descripcion; ?> </td>
+                            <td> <?php echo $row->stock; ?> </td>
+                            <td> <?php echo $row->precio; ?> </td>
+                            <td> <img src="<?php echo base_url(" $row->imagen") ?>"></td>
+                            <td>
+                                <?php if ($this->session->userdata('login')) {
+                                echo form_open('agregarcarrito');
+                                echo form_hidden('id', $row->id_producto);
+                                echo form_hidden('marca', $row->marca_desc);
+                                echo form_hidden('precio', $row->precio);
+                                echo form_hidden('stock', $row->stock);
+                                echo form_hidden('categoria', $row->categoria_id);
+                                echo form_submit('comprar', 'Agregar al carrito',"class='btn form text-dark'");
+                                echo form_close();
+                                } ?>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>*@
+
 
 
 

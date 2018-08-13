@@ -1,0 +1,46 @@
+﻿@using MVC.Models
+@model PronosticoVM
+
+
+
+@using (Html.BeginForm("crear", "api/pronostico", FormMethod.Post))
+{
+    <div>
+        @Html.Label("Equipo Local");
+        @Html.TextBoxFor(m => m.EquipoLocal, new { @class = "caption" });
+    </div>
+    <div>
+        @Html.Label("Equipo Visitante");
+        @Html.TextBoxFor(m => m.EquipoVisitante, new { @class = "text-danger" });
+    </div>
+
+
+
+
+
+}
+
+<form asp-controller="api/pronostico" asp-action="crear" method="post">
+    <div>
+        <label asp-for="EquipoLocal" class="caption"></label>
+        <input asp-for="EquipoLocal">
+        <label asp-for="GolesLocales" class="caption">GolesLocales</label>
+        <input asp-for="GolesLocales">
+        @*<span asp-validation-for=""></span>*@
+
+    </div>
+    <div>
+        <label asp-for="EquipoVisitante" class="caption"></label>
+        <input asp-for="EquipoVisitante">
+        <label asp-for="GolesVisitantes" class="caption">GolesVisitantes</label>
+        <input asp-for="GolesVisitantes">
+    
+
+    </div>
+
+    <div>
+        <input type="submit" name="Guardar Pronostico" />
+    </div>
+
+
+</form>
